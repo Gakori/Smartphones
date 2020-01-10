@@ -1,32 +1,24 @@
 from . import auth 
 from flask_login import login_user,logout_user,login_required
-from flask import request,render_template
+from flask import request,render_template,flash,redirect,url_for
+from .forms import RegistrationForm, LoginForm
 
 @auth.route('/register', methods =('GET', 'POST'))
 def register():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        db = get_db()
-        error = None
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        flash(f'Account created for {form.username.data}!', 'success')
+        return redirect(url_for('main.smartphones'))
 
-        if not username:
-            error = 'Username is required.'
-        elif not password:
-            error = 'Password is required.'
-        elif db.execute(
-            'SELECT id FROM user WHERE username = ?', (username,)
-        ).fetchone() is not None:
-            error = 'User {} is already registered.'.format(username)
+    return render_template('auth/register.html',form=form)
 
-        if error is None:
-            db.execute(
-                'INSERT INTO user (username, password) VALUES (?, ?)',
-                (username, generate_password_hash(password))
-            )
-            db.commit()
-            return redirect(url_for('auth.login'))
-
-        flash(error)
-
-    return render_template('auth/register.html')
+@auth.route("/login", methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        if form.email.data == 'admin@blog.com' and form.password.data == 'password':
+            flash('You have been logged in!', 'success')
+            return redirect(url_for('home'))
+        else:
+            flash('Login Unsuccessful. Please check username and password', 'danger')
+    return render_template('auth/login.html', title='Login', form=form)
