@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block styles %}
+{{super()}}
+{% endblock styles %}
+
+{% block content %}
+
+{% if comments %}
+{% for comment in comments %}
+<h5>comments</h5>
+<p>{{comment.title}}</p>
+<p>{{comment.content}}</p>
+<p>{{comment.date_posted('%m%d%Y')}}</p>
+
+{% endfor %}
+{ else }
+<p>there are no comments about this phone</p>
+{% endif %}
+
+{{wtf.quick_form(form)}}
+
+{% endblock content %}

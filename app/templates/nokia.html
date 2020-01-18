@@ -1,0 +1,56 @@
+{% extends 'base.html' %} 
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static',filename='css/nokia.css')}}">
+<script src="{{url_for('static', filename='js/nokia.js')}}"></script>
+{% endblock styles %}
+
+{% block content %}
+
+<h1>nokia</h1>
+
+<base href="{{url_for('main.smartphones')}}">
+<div id="carousel">
+  <figure id="spinner">
+    <img src="https://cdn.pixabay.com/photo/2015/02/04/15/23/nokia-623939__340.jpg" alt>
+    <img src="https://cdn.pixabay.com/photo/2015/05/29/10/33/ux-789162__340.jpg" alt>
+    <img src="https://cdn.pixabay.com/photo/2015/01/26/10/23/office-612532__340.jpg" alt>
+    <img src="https://cdn.pixabay.com/photo/2015/09/06/00/50/nokia-926756__340.jpg" alt>
+    <img src="https://cdn.pixabay.com/photo/2016/07/05/08/16/mobile-phone-1498271__340.jpg" alt>
+    <img src="https://cdn.pixabay.com/photo/2015/08/08/01/41/nokia-879986__340.jpg" alt>
+    <img src="https://cdn.pixabay.com/photo/2015/05/31/10/59/smartphone-791076__340.jpg" alt>
+    <img src="https://cdn.pixabay.com/photo/2019/08/03/14/51/mobile-phone-4381895__340.jpg" alt>
+  </figure>
+</div>
+<span style="float:left" class="ss-icon" onclick="galleryspin('-')">&lt;</span>
+<span style="float:right" class="ss-icon" onclick="galleryspin('')">&gt;</span>
+
+<div class="container">
+  <h1>one</h1>
+  <div class="col-md-6">
+  <img src="https://cdn.pixabay.com/photo/2015/01/26/10/23/office-612532__340.jpg" alt="" width="">
+</div>
+
+<div class="col-md-6">
+  <h1>two</h1>
+  <img src="https://cdn.pixabay.com/photo/2015/04/14/23/16/mobile-722946__340.jpg" alt="" width="">
+</div>
+
+<div class="col-md-6">
+  <h1>three</h1>
+  <img src="https://cdn.pixabay.com/photo/2013/07/12/19/00/slider-154173__340.png" alt="" width="">
+</div>
+
+<div class="col-md-6">
+  <h4>four</h4>
+  <img src="https://cdn.pixabay.com/photo/2015/09/06/00/50/nokia-926756__340.jpg" alt="" width="">
+  <a href="">comment</a>
+</div>
+</div>
+
+
+{% endblock content %}
+<style>
+
+</style>

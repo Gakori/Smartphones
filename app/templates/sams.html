@@ -1,0 +1,20 @@
+{% extends 'base.html' %} 
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static',filename='css/sams.css')}}">
+{% endblock styles %}
+
+{% block content %}
+<body>
+    
+
+<a href="#">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    Samsung
+</a>
+</body>
+{% endblock content %}

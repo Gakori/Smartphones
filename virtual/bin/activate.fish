@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/faith/Documents/Python/gakoripy/Smartphones/virtual"
+set -gx VIRTUAL_ENV "/home/faith/Documents/Python/Smartphones/virtual"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
